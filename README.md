@@ -3,7 +3,15 @@ A lightning-fast and efficient telegram sniper written in Go. Automatically moni
 
 ## How does it work?
 
-Simple, it uses [fragment](https://fragment.com/) to check for the username availability, once it becomes available it will use the [telegram api](https://core.telegram.org/api) to create a new channel with the username that just became available, let's imagine the scenario where you're sniping `dead` and it suddenly becomes available, your account will then create a channel that you can find at `t.me/dead`
+Simple, it uses [fragment](https://fragment.com/) to check for the username availability, once it becomes available it will use the [telegram api](https://core.telegram.org/api) to either create a new channel or claim it to your account username, depending on your settings. 
+
+## Features
+- [x] Flexible claiming method, where you can pick whether to claim it to `user` or a `channel`
+- [x] Multiple usernames input
+- [x] Interactive telegram auth
+- [ ] Proxies
+- [ ] Provide multiple telegram accounts
+- [ ] Find a better method for username checking
 
 ## FAQ
 
