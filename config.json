@@ -1,0 +1,12 @@
+{
+    "telegram": {
+        "phone_number": "",
+        "api_id": 0,
+        "api_hash": ""
+    },
+    
+    "sleep_between_check": 100,
+    "usernames": [
+        "waquan"
+    ]
+}
