@@ -59,4 +59,4 @@ Simple, it uses [fragment](https://fragment.com/) to check for the username avai
 - [Download the repository](https://github.com/qg5/telegram-username-sniper/archive/refs/heads/main.zip)
 - Extract the files
 - Fill the config file
-- Navigate to `cmd/app` and run `go run .` or `go run main.go`
+- Navigate to `cmd/app` and execute one of these commands in your terminal `go run .` or `go run main.go`
