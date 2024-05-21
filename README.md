@@ -23,7 +23,7 @@ Simple, it uses [fragment](https://fragment.com/) to check for the username avai
 
 **A:** No, you can’t. bots don't have access to the `channels.createChannel` and `account.updateUsername` method, which are required for this program to work.
 
-**Q: Why does it claim to a channel and not to my account?** 
+**Q: Why claim it to a channel, isn't that stupid?** 
 
 **A:** You can change this in settings, but channel is recommended since it has less ratelimits, you can still auction the channel usernames in [fragment](https://fragment.com/).
 
