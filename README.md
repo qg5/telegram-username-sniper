@@ -15,6 +15,10 @@ Simple, it uses [fragment](https://fragment.com/) to check for the username avai
 
 **A:** No, you can’t. bots don't have access to the `channels.createChannel` method, which is required for this program to work.
 
+**Q: Why does it claim to a channel and not to my account?** 
+
+**A:** You can change this in settings, but channel is recommended since it has less ratelimits, you can still auction the channel usernames in [fragment](https://fragment.com/).
+
 **Q: Can I target as many usernames as I want?** 
 
 **A:** Yes! You can, but it's not recommended, there's no limit set, but I advise you to not add more than 5 usernames, because if you're checking 50 usernames at the same time, the chance is you will miss out on an username that just became available, **having less usernames and a lot of patience will increase your chances of getting that username drastically**.
@@ -35,7 +39,8 @@ Simple, it uses [fragment](https://fragment.com/) to check for the username avai
         "api_id": 0,
         "api_hash": ""
     },
-    
+
+    "claim_to": "user",
     "sleep_between_check": 100,
     "usernames": [
         "waquan"
@@ -44,6 +49,7 @@ Simple, it uses [fragment](https://fragment.com/) to check for the username avai
 ```
 - **phone_number**: Your phone number associated to the telegram account in international format (e.g., `+12342348237`)
 - **api_id**, **api_hash**: Both of these you can obtain from the [telegram portal](https://my.telegram.org)
+- **claim_to**: This is the method for claiming you want to use, it can either be `channel` or `user`
 - **sleep_between_check**: The time to sleep between a check, in milliseconds, setting the value of this to less than `100` may trigger ratelimits
 - **usernames**: Provide here the list of usernames you want to monitor (e.g., `["dead", "devious"]`)
 
