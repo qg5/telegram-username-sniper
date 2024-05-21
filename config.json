@@ -4,7 +4,8 @@
         "api_id": 0,
         "api_hash": ""
     },
-    
+
+    "claim_to": "user",
     "sleep_between_check": 100,
     "usernames": [
         "waquan"
