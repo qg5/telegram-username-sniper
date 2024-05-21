@@ -56,7 +56,7 @@ Simple, it uses [fragment](https://fragment.com/) to check for the username avai
 }
 ```
 - **phone_number**: Your phone number associated to the telegram account in international format (e.g., `+12342348237`)
-- **api_id**, **api_hash**: Both of these you can obtain from the [telegram portal](https://my.telegram.org)
+- **api_id**, **api_hash**: Both of these you can obtain by following this [guide](https://core.telegram.org/api/obtaining_api_id)
 - **claim_to**: This is the method for claiming you want to use, it can either be `channel` or `user`
 - **sleep_between_check**: The time to sleep between a check, in milliseconds, setting the value of this to less than `100` may trigger ratelimits
 - **usernames**: Provide here the list of usernames you want to monitor (e.g., `["dead", "devious"]`)
