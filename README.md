@@ -11,7 +11,7 @@ Simple, it uses [fragment](https://fragment.com/) to check for the username avai
 - [x] Interactive telegram auth
 - [ ] Proxies
 - [ ] Provide multiple telegram accounts
-- [ ] Find a better method for username checking
+- [ ] Find a better method for checking usernames
 
 ## FAQ
 
