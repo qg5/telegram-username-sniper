@@ -56,5 +56,6 @@ func scanLnWithoutEcho(s string) (string, error) {
 		return "", err
 	}
 
+	fmt.Println()
 	return string(input), nil
 }
