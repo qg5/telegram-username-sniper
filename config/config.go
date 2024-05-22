@@ -7,8 +7,6 @@ import (
 	"path/filepath"
 )
 
-var config *Configuration
-
 func init() {
 	var err error
 
@@ -19,6 +17,8 @@ func init() {
 		log.Fatalln("Error loading config:", err)
 	}
 }
+
+var config *Configuration
 
 type Configuration struct {
 	Telegram struct {
