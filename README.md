@@ -8,6 +8,7 @@ Simple, it uses [fragment](https://fragment.com/) to check for the username avai
 ## Features
 - [x] Flexible claiming method, where you can pick whether to claim it to `user` or a `channel`
 - [x] Multiple usernames input
+- [x] Remove usernames that have been attempted to claim already
 - [x] Interactive telegram auth
 - [ ] Proxies
 - [ ] Provide multiple telegram accounts
