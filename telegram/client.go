@@ -58,8 +58,9 @@ func New(appID int, appHash, phoneNumber string) *Client {
 	return tgClient
 }
 
-func (c *Client) CreateChannel(accessHash string) error {
-	u, err := c.api.ChannelsCreateChannel(context.Background(), &tg.ChannelsCreateChannelRequest{Title: accessHash, Broadcast: true})
+// CreateChannel creates a new public channel with the given username.
+func (c *Client) CreateChannel(username string) error {
+	u, err := c.api.ChannelsCreateChannel(context.Background(), &tg.ChannelsCreateChannelRequest{Title: username, Broadcast: true})
 	if err != nil {
 		return err
 	}
@@ -72,9 +73,10 @@ func (c *Client) CreateChannel(accessHash string) error {
 		inputChannel = &tg.InputChannel{ChannelID: channel.GetID(), AccessHash: channel.AccessHash}
 	}
 
+	// Update the channel username.
 	if _, err := c.api.ChannelsUpdateUsername(c.ctx, &tg.ChannelsUpdateUsernameRequest{
 		Channel:  inputChannel,
-		Username: accessHash,
+		Username: username,
 	}); err != nil {
 		return err
 	}
@@ -82,6 +84,7 @@ func (c *Client) CreateChannel(accessHash string) error {
 	return nil
 }
 
+// UpdateUsername updates the account username.
 func (c *Client) UpdateUsername(newUsername string) error {
 	_, err := c.api.AccountUpdateUsername(c.ctx, newUsername)
 	return err
