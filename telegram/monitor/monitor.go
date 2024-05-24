@@ -2,30 +2,33 @@ package monitor
 
 import (
 	"app/telegram"
+	"fmt"
 	"sync"
 	"time"
 )
 
+var mu sync.Mutex
+
 func StartMonitor(usernames []string, sleepTimeMs int, availableUsernamesChan chan<- string, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for {
-		usernames = checkUsernames(usernames, sleepTimeMs, availableUsernamesChan)
+		checkUsernames(&usernames, sleepTimeMs, availableUsernamesChan)
 	}
 }
 
-func checkUsernames(usernames []string, sleepTimeMs int, availableUsernamesChan chan<- string) []string {
-	for i := 0; i < len(usernames); i++ {
-		username := usernames[i]
+func checkUsernames(usernames *[]string, sleepTimeMs int, availableUsernamesChan chan<- string) {
+	for i := 0; i < len(*usernames); i++ {
+		username := (*usernames)[i]
+		fmt.Println(i, username)
+
 		if telegram.IsUsernameAvailable(username) {
 			availableUsernamesChan <- username
 
-			// Remove usernames that have already been passed to availableUsernamesChan
-			usernames = append(usernames[:i], usernames[i+1:]...)
-			i--
+			mu.Lock()
+			defer mu.Unlock()
+			*usernames = append((*usernames)[:i], (*usernames)[i+1:]...)
 		}
 
 		time.Sleep(time.Duration(sleepTimeMs) * time.Millisecond)
 	}
-
-	return usernames
 }
