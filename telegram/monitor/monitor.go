@@ -2,7 +2,6 @@ package monitor
 
 import (
 	"app/telegram"
-	"fmt"
 	"sync"
 	"time"
 )
@@ -19,8 +18,6 @@ func StartMonitor(usernames []string, sleepTimeMs int, availableUsernamesChan ch
 func checkUsernames(usernames *[]string, sleepTimeMs int, availableUsernamesChan chan<- string) {
 	for i := 0; i < len(*usernames); i++ {
 		username := (*usernames)[i]
-		fmt.Println(i, username)
-
 		if telegram.IsUsernameAvailable(username) {
 			availableUsernamesChan <- username
 
