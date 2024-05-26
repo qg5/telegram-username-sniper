@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 
+	"github.com/gotd/td/session"
 	"github.com/gotd/td/telegram"
 	"github.com/gotd/td/telegram/auth"
 	"github.com/gotd/td/tg"
@@ -20,7 +21,10 @@ type Client struct {
 // New creates a new Telegram client, handles authentication, and runs it in a background goroutine.
 func New(appID int, appHash, phoneNumber string) *Client {
 	ctx, cancel := context.WithCancel(context.Background())
-	client := telegram.NewClient(appID, appHash, telegram.Options{})
+	client := telegram.NewClient(appID, appHash, telegram.Options{
+		SessionStorage: &session.FileStorage{Path: "session_DO_NOT_SHARE.json"},
+	})
+
 	tgClient := &Client{
 		client: client,
 		ctx:    ctx,
@@ -29,7 +33,7 @@ func New(appID int, appHash, phoneNumber string) *Client {
 
 	passedAuthFlow := make(chan struct{})
 	authFlow := auth.NewFlow(SimpleAuthFlow{PhoneNumber: phoneNumber}, auth.SendCodeOptions{})
-	
+
 	go func() {
 		err := client.Run(ctx, func(ctx context.Context) error {
 			if err := client.Auth().IfNecessary(ctx, authFlow); err != nil {
