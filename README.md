@@ -50,7 +50,7 @@ Simple, it uses [fragment](https://fragment.com/) to check for the username avai
         "api_hash": ""
     },
 
-    "claim_to": "user",
+    "claim_to": "channel",
     "sleep_between_check": 100,
     "usernames": [
         "waquan"
