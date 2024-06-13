@@ -48,7 +48,7 @@ func (s SimpleAuthFlow) Code(context.Context, *tg.AuthSentCode) (string, error) 
 	return string(code), nil
 }
 
-// Prompts the user for input without echoing the characters typed.
+// scanLnWithoutEcho prompts the user for input without echoing the characters typed.
 func scanLnWithoutEcho(s string) (string, error) {
 	fmt.Print(s)
 	input, err := term.ReadPassword(int(syscall.Stdin))
