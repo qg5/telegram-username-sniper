@@ -23,7 +23,7 @@ Simple, it uses [fragment](https://fragment.com/) to check for the username avai
 
 **Q: Can I use a bot token?** 
 
-**A:** No, you can’t. bots don't have access to the `channels.createChannel` and `account.updateUsername` method, which are required for this program to work.
+**A:** No, you can’t. Bots don't have access to the `channels.createChannel` and `account.updateUsername` method, which are required for this program to work.
 
 **Q: Why claim it to a channel, isn't that stupid?** 
 
