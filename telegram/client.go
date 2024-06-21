@@ -64,7 +64,7 @@ func New(appID int, appHash, phoneNumber string) *Client {
 
 // CreateChannel creates a new public channel with the given username.
 func (c *Client) CreateChannel(username string) error {
-	u, err := c.api.ChannelsCreateChannel(context.Background(), &tg.ChannelsCreateChannelRequest{Title: username, Broadcast: true})
+	u, err := c.api.ChannelsCreateChannel(c.ctx, &tg.ChannelsCreateChannelRequest{Title: username, Broadcast: true})
 	if err != nil {
 		return err
 	}
