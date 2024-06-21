@@ -69,12 +69,10 @@ func (c *Client) CreateChannel(username string) error {
 		return err
 	}
 
-	inputChannel := &tg.InputChannel{}
-
-	switch u := u.(type) {
-	case *tg.Updates:
-		channel := u.Chats[0].(*tg.Channel)
-		inputChannel = &tg.InputChannel{ChannelID: channel.GetID(), AccessHash: channel.AccessHash}
+	channel := u.(*tg.Updates).Chats[0].(*tg.Channel)
+	inputChannel := &tg.InputChannel{
+		ChannelID:  channel.GetID(),
+		AccessHash: channel.AccessHash,
 	}
 
 	// Update the channel username.
